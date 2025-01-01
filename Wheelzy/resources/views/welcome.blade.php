@@ -83,16 +83,18 @@
     <div class="bg">
         <div class="overlay"></div>
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="#">WHEELZY</a>
+            <a class="navbar-brand" href="/">WHEELZY</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('about') }}">About</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('register') }}">Daftar</a>
                     </li>
-                </ul>
             </div>
         </nav>
         <div class="content">

@@ -18,8 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -37,6 +35,10 @@ Route::middleware('auth', 'userMiddleware')->group(function(){
     Route::get('artikel', [ArtikelController::class, 'index'])->name('artikel');
     Route::get('faq', [FaqController::class, 'index'])->name('faq');
 
+    //Artikel User
+    Route::get('artikel', [ArtikelController::class, 'index'])->name('artikel');
+    Route::get('/artikel/{id}', [ArtikelController::class, 'show'])->name('artikel-show');    
+
 
 });
 
@@ -49,4 +51,14 @@ Route::middleware('auth', 'adminMiddleware')->group(function(){
     Route::get('/admin/artikel', [AdminArtikelController::class, 'index'])->name('admin.artikel');
     Route::get('/admin/faq', [AdminFaqController::class, 'index'])->name('admin.faq');
     Route::get('/admin/user', [ManageUserController::class, 'index'])->name('admin.user');
+
+    // Artikel Admin
+    Route::get('/admin/artikel', [AdminArtikelController::class, 'index'])->name('admin.artikel');
+    Route::get('/admin/artikel/create', [AdminArtikelController::class, 'create'])->name('admin.artikel.create');
+    Route::post('/admin/artikel', [AdminArtikelController::class, 'store'])->name('admin.artikel.store');
+    Route::get('/admin/artikel/{id}/edit', [AdminArtikelController::class, 'edit'])->name('admin.artikel.edit');
+    Route::put('/admin/artikel/{id}', [AdminArtikelController::class, 'update'])->name('admin.artikel.update');
+    Route::delete('/admin/artikel/{id}', [AdminArtikelController::class, 'destroy'])->name('admin.artikel.destroy');
+    
+    
 });
