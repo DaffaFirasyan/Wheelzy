@@ -42,7 +42,7 @@ Route::middleware('auth', 'userMiddleware')->group(function(){
     //Catalog User
     Route::get('/katalog', [AdminKatalogController::class, 'userView'])->name('katalog');
     Route::get('/katalog', [AdminKatalogController::class, 'userView'])->name('katalog.user');
-
+    Route::get('/faq', [AdminFaqController::class, 'index2'])->name('user.faq');
 
 });
 
@@ -72,7 +72,13 @@ Route::middleware('auth', 'adminMiddleware')->group(function(){
     Route::put('/admin/katalogs/{id}', [AdminKatalogController::class, 'update'])->name('admin.katalog.update');
     Route::delete('/admin/katalogs/{id}', [AdminKatalogController::class, 'destroy'])->name('admin.katalog.destroy');
 
-
+    //faq Admin
+    Route::get('/admin/faq', [AdminFaqController::class, 'index'])->name('admin.faq');
+    Route::get('/admin/faqs/create', [AdminFaqController::class, 'create'])->name('admin.faq.create');
+    Route::post('/admin/faqs', [AdminFaqController::class, 'store'])->name('admin.faq.store');
+    Route::get('/admin/faqs/{id}/edit', [AdminFaqController::class, 'edit'])->name('admin.faq.edit');
+    Route::put('/admin/faqs/{id}', [AdminFaqController::class, 'update'])->name('admin.faq.update');
+    Route::delete('/admin/faqs/{id}', [AdminFaqController::class, 'destroy'])->name('admin.faq.destroy');
     
     
 });
