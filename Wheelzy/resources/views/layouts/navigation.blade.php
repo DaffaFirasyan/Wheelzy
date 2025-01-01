@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-black border-b border-black">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -6,57 +6,56 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ Auth::user()->usertype == 'admin' ? route('admin.dashboard') : route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        <x-application-logo class="block h-9 w-auto fill-current text-white" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                <x-nav-link :href="Auth::user()->usertype == 'admin' ? route('admin.dashboard') : route('dashboard')" :active="request()->routeIs('dashboard') || (Auth::user()->usertype == 'admin' && request()->routeIs('admin.dashboard'))">
-                    {{ __('Dashboard') }}
-            </x-nav-link>
+                <div class="hidden space-x-8 text-white sm:-my-px sm:ms-10 sm:flex" style="font-family: 'Poppins';">
+                    <x-nav-link :href="Auth::user()->usertype == 'admin' ? route('admin.dashboard') : route('dashboard')" :active="request()->routeIs('dashboard') || (Auth::user()->usertype == 'admin' && request()->routeIs('admin.dashboard'))" class="text-white">
+                        {{ __('Dashboard') }}
+                    </x-nav-link>
 
                     {{-- admin links --}}
                     @if (Auth::user()->usertype == 'admin')
-                    <x-nav-link href="form" :active="request()->routeIs('admin.form')">
+                    <x-nav-link href="form" :active="request()->routeIs('admin.form')" class="text-white">
                         {{ __('Form') }}
                     </x-nav-link>
 
-                    <x-nav-link href="katalog" :active="request()->routeIs('admin.katalog')">
+                    <x-nav-link href="katalog" :active="request()->routeIs('admin.katalog')" class="text-white">
                         {{ __('Katalog') }}
                     </x-nav-link>
 
-                    <x-nav-link href="artikel" :active="request()->routeIs('admin.artikel')">
+                    <x-nav-link href="artikel" :active="request()->routeIs('admin.artikel')" class="text-white">
                         {{ __('Artikel') }}
                     </x-nav-link>
 
-                    <x-nav-link href="faq" :active="request()->routeIs('admin.faq')">
+                    <x-nav-link href="faq" :active="request()->routeIs('admin.faq')" class="text-white">
                         {{ __('FAQ') }}
                     </x-nav-link>
 
-                    <x-nav-link href="user" :active="request()->routeIs('admin.user')">
-                        {{ __('User ') }}
+                    <x-nav-link href="user" :active="request()->routeIs('admin.user')" class="text-white">
+                        {{ __('User') }}
                     </x-nav-link>
                     @endif
 
                     {{-- user links --}}
                     @if (Auth::user()->usertype == 'user')
-                    <x-nav-link href="pesan" :active="request()->routeIs('user.pesan')">
+                    <x-nav-link href="pesan" :active="request()->routeIs('user.pesan')" class="text-white">
                         {{ __('Pesan') }}
                     </x-nav-link>
 
-                    <x-nav-link href="katalog" :active="request()->routeIs('user.katalog')">
+                    <x-nav-link href="katalog" :active="request()->routeIs('user.katalog')" class="text-white">
                         {{ __('Katalog') }}
                     </x-nav-link>
 
-                    <x-nav-link href="artikel" :active="request()->routeIs('user.artikel')">
+                    <x-nav-link href="artikel" :active="request()->routeIs('user.artikel')" class="text-white">
                         {{ __('Artikel') }}
                     </x-nav-link>
 
-                    <x-nav-link href="faq" :active="request()->routeIs('user.faq')">
+                    <x-nav-link href="faq" :active="request()->routeIs('user.faq')" class="text-white">
                         {{ __('FAQ') }}
                     </x-nav-link>
-
                     @endif
                 </div>
             </div>
@@ -65,7 +64,7 @@
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-black hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>
                             <div class="ms-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -106,72 +105,71 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden bg-black text-white">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-white">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-                    {{-- admin links --}}
-                    @if (Auth::user()->usertype == 'admin')
-                    <x-responsive-nav-link href="form" :active="request()->routeIs('admin.form')">
-                        {{ __('Form') }}
-                    </x-responsive-nav-link>
+            {{-- admin links --}}
+            @if (Auth::user()->usertype == 'admin')
+            <x-responsive-nav-link href="form" :active="request()->routeIs('admin.form')" class="text-white">
+                {{ __('Form') }}
+            </x-responsive-nav-link>
 
-                    <x-responsive-nav-link href="katalog" :active="request()->routeIs('admin.katalog')">
-                        {{ __('Katalog') }}
-                    </x-responsive-nav-link>
+            <x-responsive-nav-link href="katalog" :active="request()->routeIs('admin.katalog')" class="text-white">
+                {{ __('Katalog') }}
+            </x-responsive-nav-link>
 
-                    <x-responsive-nav-link href="artikel" :active="request()->routeIs('admin.artikel')">
-                        {{ __('Artikel') }}
-                    </x-responsive-nav-link>
+            <x-responsive-nav-link href="artikel" :active="request()->routeIs('admin.artikel')" class="text-white">
+                {{ __('Artikel') }}
+            </x-responsive-nav-link>
 
-                    <x-responsive-nav-link href="faq" :active="request()->routeIs('admin.faq')">
-                        {{ __('FAQ') }}
-                    </x-responsive-nav-link>
+            <x-responsive-nav-link href="faq" :active="request()->routeIs('admin.faq')" class="text-white">
+                {{ __('FAQ') }}
+            </x-responsive-nav-link>
 
-                    <x-responsive-nav-link href="user" :active="request()->routeIs('admin.user')">
-                        {{ __('User ') }}
-                    </x-responsive-nav-link>
-                    @endif
+            <x-responsive-nav-link href="user" :active="request()->routeIs('admin.user')" class="text-white">
+                {{ __('User') }}
+            </x-responsive-nav-link>
+            @endif
 
-                    {{-- user links --}}
-                    @if (Auth::user()->usertype == 'user')
-                    <x-responsive-nav-link href="pesan" :active="request()->routeIs('user.pesan')">
-                        {{ __('Pesan') }}
-                    </x-responsive-nav-link>
+            {{-- user links --}}
+            @if (Auth::user()->usertype == 'user')
+            <x-responsive-nav-link href="pesan" :active="request()->routeIs('user.pesan')" class="text-white">
+                {{ __('Pesan') }}
+            </x-responsive-nav-link>
 
-                    <x-responsive-nav-link href="katalog" :active="request()->routeIs('user.katalog')">
-                        {{ __('Katalog') }}
-                    </x-responsive-nav-link>
+            <x-responsive-nav-link href="katalog" :active="request()->routeIs('user.katalog')" class="text-white">
+                {{ __('Katalog') }}
+            </x-responsive-nav-link>
 
-                    <x-responsive-nav-link href="artikel" :active="request()->routeIs('user.artikel')">
-                        {{ __('Artikel') }}
-                    </x-responsive-nav-link>
+            <x-responsive-nav-link href="artikel" :active="request()->routeIs('user.artikel')" class="text-white">
+                {{ __('Artikel') }}
+            </x-responsive-nav-link>
 
-                    <x-responsive-nav-link href="faq" :active="request()->routeIs('user.faq')">
-                        {{ __('FAQ') }}
-                    </x-responsive-nav-link>
-
-                    @endif
+            <x-responsive-nav-link href="faq" :active="request()->routeIs('user.faq')" class="text-white">
+                {{ __('FAQ') }}
+            </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
+        <div class="pt-4 pb-1 border-t border-gray-700">
             <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                <div class="font-medium text-base text-white">{{ Auth::user()->name }}</div>
+                <div class="font-medium text-sm text-gray-400">{{ Auth::user()->email }}</div>
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
+                <x-responsive-nav-link :href="route('profile.edit')" class="text-white">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <x-responsive-nav-link :href="route('logout')"
+                    <x-responsive-nav-link :href="route('logout')" class="text-white"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
