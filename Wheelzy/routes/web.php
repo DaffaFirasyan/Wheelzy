@@ -37,7 +37,11 @@ Route::middleware('auth', 'userMiddleware')->group(function(){
 
     //Artikel User
     Route::get('artikel', [ArtikelController::class, 'index'])->name('artikel');
-    Route::get('/artikel/{id}', [ArtikelController::class, 'show'])->name('artikel-show');    
+    Route::get('/artikel/{id}', [ArtikelController::class, 'show'])->name('artikel-show'); 
+    
+    //Catalog User
+    Route::get('/katalog', [AdminKatalogController::class, 'userView'])->name('katalog');
+    Route::get('/katalog', [AdminKatalogController::class, 'userView'])->name('katalog.user');
 
 
 });
@@ -59,6 +63,16 @@ Route::middleware('auth', 'adminMiddleware')->group(function(){
     Route::get('/admin/artikel/{id}/edit', [AdminArtikelController::class, 'edit'])->name('admin.artikel.edit');
     Route::put('/admin/artikel/{id}', [AdminArtikelController::class, 'update'])->name('admin.artikel.update');
     Route::delete('/admin/artikel/{id}', [AdminArtikelController::class, 'destroy'])->name('admin.artikel.destroy');
+
+    //Catalog Admin
+    Route::get('/admin/katalog', [AdminKatalogController::class, 'index'])->name('admin.katalog');
+    Route::get('/admin/katalogs/create', [AdminKatalogController::class, 'create'])->name('admin.katalog.create');
+    Route::post('/admin/katalogs', [AdminKatalogController::class, 'store'])->name('admin.katalog.store');
+    Route::get('/admin/katalogs/{id}/edit', [AdminKatalogController::class, 'edit'])->name('admin.katalog.edit');
+    Route::put('/admin/katalogs/{id}', [AdminKatalogController::class, 'update'])->name('admin.katalog.update');
+    Route::delete('/admin/katalogs/{id}', [AdminKatalogController::class, 'destroy'])->name('admin.katalog.destroy');
+
+
     
     
 });
