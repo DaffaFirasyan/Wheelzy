@@ -15,38 +15,38 @@
         <div id="services" class="py-12 bg-black">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-8">
                 <!-- Service 1 -->
-                <div class="bg-gray-100 p-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
                     <div class="text-center">
                         <img src="/images/Pelayanan.jpg" alt="Pelayanan" class="mx-auto rounded-lg mb-4 w-92 h-auto">
-                        <h3 class="text-lg font-semibold">Pelayanan</h3>
-                        <p class="text-gray-600 mt-2">Kami mengutamakan kenyamanan dalam melayani pelanggan</p>
+                        <h3 class="text-white font-bold">Pelayanan</h3>
+                        <p class="text-white mt-2">Kami mengutamakan kenyamanan dalam melayani pelanggan</p>
                     </div>
                 </div>
 
                 <!-- Service 2 -->
-                <div class="bg-gray-100 p-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
                     <div class="text-center">
                         <img src="/images/CustomerService.jpg" alt="Layanan 24 Jam" class="mx-auto rounded-lg mb-4 w-92 h-auto">
-                        <h3 class="text-lg font-semibold">Layanan 24 Jam</h3>
-                        <p class="text-gray-600 mt-2">Demi kenyamanan pelanggan, kami siap melayani Anda selama 24 jam</p>
+                        <h3 class="text-white font-bold">Layanan 24 Jam</h3>
+                        <p class="text-white mt-2">Demi kenyamanan pelanggan, kami siap melayani Anda selama 24 jam</p>
                     </div>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="bg-gray-100 p-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
                     <div class="text-center">
-                        <img src="/images/UnitTerbaru.jpg" alt="Unit Terbaru" class="mmx-auto rounded-lg mb-4 w-92 h-auto">
-                        <h3 class="text-lg font-semibold">Unit Terbaru</h3>
-                        <p class="text-gray-600 mt-2">Wheelzy menyediakan unit-unit kendaraan dengan tahun tinggi</p>
+                        <img src="/images/UnitTerbaru.jpg" alt="Unit Terbaru" class="mx-auto rounded-lg mb-4 w-92 h-auto">
+                        <h3 class="text-white font-bold">Unit Terbaru</h3>
+                        <p class="text-white mt-2">Wheelzy menyediakan unit-unit kendaraan dengan tahun tinggi</p>
                     </div>
                 </div>
 
                 <!-- Service 4 -->
-                <div class="bg-gray-100 p-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
                     <div class="text-center">
                         <img src="/images/RentCar.jpg" alt="Layanan Antar Jemput" class="mx-auto rounded-lg mb-4 w-92 h-auto">
-                        <h3 class="text-lg font-semibold">Layanan Antar Jemput</h3>
-                        <p class="text-gray-600 mt-2">Kami menawarkan jasa antar jemput untuk pelanggan di mana pun</p>
+                        <h3 class="text-white font-bold">Layanan Antar Jemput</h3>
+                        <p class="text-white mt-2">Kami menawarkan jasa antar jemput untuk pelanggan di mana pun</p>
                     </div>
                 </div>
             </div>
@@ -56,18 +56,18 @@
         <div class="py-12 bg-black">
             <div class="text-center">
                 <h2 class="text-3xl text-white font-bold mb-6">Apa Kata Pelanggan Kami</h2>
-                 <div class="max-w-3xl mx-auto">
-                    <div class="bg-white p-6 rounded-lg shadow-md mb-4">
-                        <p class="text-gray-600">"Pelayanan yang sangat memuaskan! Saya sangat merekomendasikan Wheelzy kepada teman-teman saya."</p>
-                        <p class="font-semibold mt-2">- Andi</p>
+                 <div class="max-w-4xl mx-auto">
+                    <div class="bg-white bg-opacity-10 p-6 rounded-lg shadow-md mb-4">
+                        <p class="text-white">"Pelayanan yang sangat memuaskan! Saya sangat merekomendasikan Wheelzy kepada teman-teman saya."</p>
+                        <p class="text-white font-semibold mt-2">- Andi</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md mb-4">
-                        <p class="text-gray-600">"Layanan 24 jam sangat membantu saya saat membutuhkan transportasi mendesak."</p>
-                        <p class="font-semibold mt-2">- Siti</p>
+                    <div class="bg-white bg-opacity-10 p-6 rounded-lg shadow-md mb-4">
+                        <p class="text-white">"Layanan 24 jam sangat membantu saya saat membutuhkan transportasi mendesak."</p>
+                        <p class="text-white font-semibold mt-2">- Siti</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <p class="text-gray-600">"Unit kendaraan yang disediakan sangat baru dan nyaman. Sangat puas!"</p>
-                        <p class="font-semibold mt-2">- Budi</p>
+                    <div class="bg-white bg-opacity-10 p-6 rounded-lg shadow-md">
+                        <p class="text-white">"Unit kendaraan yang disediakan sangat baru dan nyaman. Sangat puas!"</p>
+                        <p class="text-white font-semibold mt-2">- Budi</p>
                     </div>
                 </div>
             </div>
