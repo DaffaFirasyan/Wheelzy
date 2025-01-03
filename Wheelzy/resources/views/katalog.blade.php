@@ -14,6 +14,11 @@
             background-color: #00000; 
             color: #00000; 
             border: 1px solid #ddd;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn-filter:hover {
+            background-color: #00C853;
+            color: #fff;
         }
         .btn-filter.active {
             background-color: #00C853;
@@ -22,7 +27,7 @@
         .card {
             display: flex;
             flex-direction: row;
-            align-items: center;
+            align-items: flex-start;
             border: none;
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -33,13 +38,16 @@
         }
         .card img {
             height: 250px;
-            object-fit: cover;
+            max-width: 300px;
+            object-fit: scale-down;
             border-radius: 15px 0 0 15px;
         }
         .card-body {
             padding: 15px;
             flex: 1;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
         .price-tag {
             background-color: #00C853;
@@ -58,12 +66,26 @@
             padding: 5px 20px;
             font-weight: 500;
             position: absolute;
-            bottom: -45px; 
+            bottom: -20px; 
             right: 20px; 
         }
         .btn-rent:hover {
             background-color: #00C853;
             color: #fff;
+        }
+        .card-content {
+            display: flex;
+            flex-direction: column;
+        }
+        .card-title {
+            font-size: 2.5rem; 
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+        }
+        .badge {
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
         }
     </style>
 
@@ -73,15 +95,15 @@
                 <!-- Filter Kategori -->
                 <div class="mb-4 d-flex">
                     <button onclick="setActiveFilter(this); window.location='{{ route('katalog.user') }}'" 
-                            class="btn btn-filter text-white me-2">
+                            class="btn btn-filter text-white me-2 {{ request('kategori') ? '' : 'active' }}">
                         {{ __('All') }}
                     </button>
                     <button onclick="setActiveFilter(this); window.location='{{ route('katalog.user', ['kategori' => 'Mobil']) }}'" 
-                            class="btn btn-filter text-white me-2">
+                            class="btn btn-filter text-white me-2 {{ request('kategori') === 'Mobil' ? 'active' : '' }}">
                         {{ __('Mobil') }}
                     </button>
                     <button onclick="setActiveFilter(this); window.location='{{ route('katalog.user', ['kategori' => 'Motor']) }}'" 
-                            class="btn btn-filter text-white me-2">
+                            class="btn btn-filter text-white me-2 {{ request('kategori') === 'Motor' ? 'active' : '' }}">
                         {{ __('Motor') }}
                     </button>
                 </div>
@@ -96,10 +118,9 @@
 
                         <!-- Detail Kendaraan -->
                         <div class="card-body">
-                            <h5 class="card-title text-white">{{ $katalog->nama_kendaraan }}</h5>
-                            <p class="card-text text-white">{{ Str::limit($katalog->deskripsi, 100) }}</p>
-                            <div class="d-flex mb-2">
-                                <span class="badge bg-light text-white me-2">{{ $katalog->kategori->nama }}</span>
+                            <div class="card-content">
+                                <h5 class="card-title text-white">{{ $katalog->nama_kendaraan }}</h5>
+                                <p class="card-text text-white">{{ Str::limit($katalog->deskripsi, 500) }}</p>
                             </div>
                             <!-- Tombol Sewa Sekarang -->
                             <button class="btn btn-rent">{{ __('Sewa Sekarang') }}</button>

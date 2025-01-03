@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ Auth::user()->usertype == 'admin' ? route('admin.dashboard') : route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-white" />
+                        <img src="{{ asset('images/LogoWheelzy.png') }}" alt="Logo" class="h-12">
                     </a>
                 </div>
 
