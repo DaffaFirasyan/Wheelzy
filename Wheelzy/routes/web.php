@@ -19,6 +19,8 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -86,4 +88,9 @@ Route::middleware('auth', 'adminMiddleware')->group(function () {
     Route::delete('/admin/form/{pesanan}', [AdminFormController::class, 'destroy'])->name('admin.form.destroy');
     Route::get('/admin/form/export/pdf', [AdminFormController::class, 'exportPDF'])->name('admin.form.export');
     Route::get('/admin/form/{pesanan}/pdf', [AdminFormController::class, 'exportDetailPDF'])->name('admin.form.pdf');
+
+    //Manage User
+    Route::get('/admin/user/{id}/edit', [ManageUserController::class, 'edit'])->name('admin.user.edit');
+    Route::put('/admin/user/{id}', [ManageUserController::class, 'update'])->name('admin.user.update');
+    Route::delete('/admin/user/{id}', [ManageUserController::class, 'destroy'])->name('admin.user.destroy');
 });
