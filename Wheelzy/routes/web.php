@@ -24,33 +24,39 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 // User Routes
-Route::middleware('auth', 'userMiddleware')->group(function(){
-    
+Route::middleware('auth', 'userMiddleware')->group(function () {
+
     Route::get('dashboard', [UserController::class, 'index'])->name('dashboard');
-    Route::get('pesan', [PesanController::class, 'index'])->name('pesan');
+
     Route::get('katalog', [KatalogController::class, 'index'])->name('katalog');
     Route::get('artikel', [ArtikelController::class, 'index'])->name('artikel');
     Route::get('faq', [FaqController::class, 'index'])->name('faq');
 
     //Artikel User
     Route::get('artikel', [ArtikelController::class, 'index'])->name('artikel');
-    Route::get('/artikel/{id}', [ArtikelController::class, 'show'])->name('artikel-show'); 
-    
+    Route::get('/artikel/{id}', [ArtikelController::class, 'show'])->name('artikel-show');
+
     //Catalog User
     Route::get('/katalog', [AdminKatalogController::class, 'userView'])->name('katalog');
     Route::get('/katalog', [AdminKatalogController::class, 'userView'])->name('katalog.user');
-    Route::get('/faq', [AdminFaqController::class, 'index2'])->name('user.faq');
 
+    //Pesan User
+    Route::get('pesan', [PesanController::class, 'index'])->name('pesan');
+    Route::get('pesan/create', [PesanController::class, 'create'])->name('pesan.create');
+    Route::post('pesan', [PesanController::class, 'store'])->name('pesan.store');
+    Route::get('pesan/{pesanan}', [PesanController::class, 'show'])->name('pesan.show');
+    Route::get('pesan/export/history', [PesanController::class, 'exportHistoryPDF'])->name('pesan.export.history');
+    Route::get('pesan/{pesanan}/pdf', [PesanController::class, 'exportPDF'])->name('pesan.pdf');
+    Route::get('pesan_get-kendaraan', [PesanController::class, 'getKendaraan'])->name('pesan.get-kendaraan');
 });
 
 // Admin Routes
-Route::middleware('auth', 'adminMiddleware')->group(function(){
-    
+Route::middleware('auth', 'adminMiddleware')->group(function () {
+
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/admin/form', [AdminFormController::class, 'index'])->name('admin.form');
     Route::get('/admin/katalog', [AdminKatalogController::class, 'index'])->name('admin.katalog');
     Route::get('/admin/artikel', [AdminArtikelController::class, 'index'])->name('admin.artikel');
     Route::get('/admin/faq', [AdminFaqController::class, 'index'])->name('admin.faq');
@@ -72,13 +78,12 @@ Route::middleware('auth', 'adminMiddleware')->group(function(){
     Route::put('/admin/katalogs/{id}', [AdminKatalogController::class, 'update'])->name('admin.katalog.update');
     Route::delete('/admin/katalogs/{id}', [AdminKatalogController::class, 'destroy'])->name('admin.katalog.destroy');
 
-    //faq Admin
-    Route::get('/admin/faq', [AdminFaqController::class, 'index'])->name('admin.faq');
-    Route::get('/admin/faqs/create', [AdminFaqController::class, 'create'])->name('admin.faq.create');
-    Route::post('/admin/faqs', [AdminFaqController::class, 'store'])->name('admin.faq.store');
-    Route::get('/admin/faqs/{id}/edit', [AdminFaqController::class, 'edit'])->name('admin.faq.edit');
-    Route::put('/admin/faqs/{id}', [AdminFaqController::class, 'update'])->name('admin.faq.update');
-    Route::delete('/admin/faqs/{id}', [AdminFaqController::class, 'destroy'])->name('admin.faq.destroy');
-    
-    
+    //Pesan Admin
+    Route::get('/admin/form', [AdminFormController::class, 'index'])->name('admin.form');
+    Route::get('/admin/form/{pesanan}', [AdminFormController::class, 'show'])->name('admin.form.show');
+    Route::get('/admin/form/{pesanan}/edit', [AdminFormController::class, 'edit'])->name('admin.form.edit');
+    Route::put('/admin/form/{pesanan}', [AdminFormController::class, 'update'])->name('admin.form.update');
+    Route::delete('/admin/form/{pesanan}', [AdminFormController::class, 'destroy'])->name('admin.form.destroy');
+    Route::get('/admin/form/export/pdf', [AdminFormController::class, 'exportPDF'])->name('admin.form.export');
+    Route::get('/admin/form/{pesanan}/pdf', [AdminFormController::class, 'exportDetailPDF'])->name('admin.form.pdf');
 });

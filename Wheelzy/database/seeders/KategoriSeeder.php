@@ -9,7 +9,13 @@ class KategoriSeeder extends Seeder
 {
     public function run(): void
     {
-        Kategori::create(['nama' => 'Mobil']);
-        Kategori::create(['nama' => 'Motor']);
+        $kategoris = [
+            ['nama' => 'Motor'],
+            ['nama' => 'Mobil'],
+        ];
+
+        foreach ($kategoris as $kategori) {
+            Kategori::create($kategori);
+        }
     }
 }
