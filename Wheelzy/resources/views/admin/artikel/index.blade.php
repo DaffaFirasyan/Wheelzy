@@ -9,9 +9,9 @@
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-4 lg:px-6">
             <div class="bg-white shadow-sm rounded-lg p-4">
-                <a href="{{ route('admin.artikel.create') }}"
-                    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 mb-3 inline-block">Tambah
-                    Artikel</a>
+                <a href="{{ route('admin.artikel.create ') }}"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 mb-3 inline-block">
+                    Tambah Artikel</a>
                 @if (session('success'))
                     <div class="alert alert-success text-green-600 mb-4">{{ session('success') }}</div>
                 @endif

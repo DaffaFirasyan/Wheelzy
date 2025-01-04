@@ -151,5 +151,4 @@
         Dicetak pada: {{ now()->format('d M Y H:i') }}
     </div>
 </body>
-
 </html>

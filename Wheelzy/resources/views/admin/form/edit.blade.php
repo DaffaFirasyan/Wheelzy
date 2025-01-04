@@ -1,7 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-between">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h2 class="font-semibold text-xl text-white leading-tight"
+                style="font-size: 30px;">
                 Edit Pesanan #{{ $pesanan->id }}
             </h2>
             <a href="{{ route('admin.form') }}" class="px-4 py-2 bg-gray-800 text-white rounded-md text-sm">Kembali</a>
