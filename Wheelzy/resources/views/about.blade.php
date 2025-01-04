@@ -50,6 +50,32 @@
             max-width: 45%;
         }
 
+        .container-full-width {
+            width: 95%;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+        }
+
+        .container-full-width h1 {
+            color: white;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: justify;
+        }
+
+        .container-full-width h2 {
+            color: white;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: justify;
+        }
+
         .container h1 {
             color: white;
             margin-bottom: 10px;
@@ -77,9 +103,9 @@
         }
 
         .bg {
-            background-image: url('/images/CarLandingPage.png');
-            height: 100%;
-            background-position: center;
+            background-image: url('/images/About.png');
+            height: 190%;
+            background-position: absolute;
             background-repeat: no-repeat;
             background-size: cover;
             position: relative;
@@ -153,7 +179,11 @@
             </div>
         </nav>
         <div class="container-wrapper">
-            <!-- Container ABOUT WHEELZY -->
+            <!-- Container Foto -->
+            <div class="container">
+                <img src="/images/rentingcar.jpg" alt="Foto Wheelzy" class="img-fluid rounded">
+            </div>
+            <!-- Container About Wheelzy -->
             <div class="container">
                 <h1>ABOUT WHEELZY</h1>
                 <p>
@@ -169,38 +199,28 @@
                     Bersama Wheelzy, nikmati kebebasan berkendara tanpa batasan. Karena bagi kami, setiap perjalanan Anda adalah prioritas kami.
                 </p>
             </div>
-            <!-- Container TEAM WHEELZY -->
-            <div class="container">
-                <h1>HUBUNGI KAMI</h1>
-                <h2>
-                    Telkom University
-                </h2>
-                <p>
+        </div>
+        <!-- Container Hubungi Kami -->
+        <div class="container-full-width">
+            <h1>HUBUNGI KAMI</h1>
+            <h2>Telkom University</h2>
+            <p>
                 Jl. Telekomunikasi No. 1, Bandung Terusan Buahbatu - Bojongsoang, Sukapura, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40257, Indonesia
-                </p>
-                <p>
-                    Whatsapp: +62 123 456 7890
-                </p>
-                <p>
-                    <a href="mailto:Wheelzy@gmail.com">wheelzy@gmail.com</a>
-                </p>
-                <p>
-                    <a href="https://www.wheelzy.com">www.wheelzy.com</a>
-                </p>
-                <p>
-                    <a href="https://www.instagram.com/wheelzy.id/"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/wheelzy.id"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.twitter.com/wheelzy.id"><i class="fab fa-twitter"></i></a>
-                </p>
-                <p>
-                    &copy; 2024 Wheelzy. All rights reserved.
-                </p>
-            </div>
-            <!-- Container MAPS -->
-            <div class="container">
-                <h1>LOKASI WHEELZY</h1>
-                <div id="map"></div>
-            </div>
+            </p>
+            <p>Whatsapp: +62 123 456 7890</p>
+            <p><a href="mailto:Wheelzy@gmail.com">wheelzy@gmail.com</a></p>
+            <p><a href="https://www.wheelzy.com">www.wheelzy.com</a></p>
+            <p>
+                <a href="https://www.instagram.com/wheelzy.id/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/wheelzy.id"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.twitter.com/wheelzy.id"><i class="fab fa-twitter"></i></a>
+            </p>
+            <p>&copy; 2024 Wheelzy. All rights reserved.</p>
+        </div>
+        <!-- Container Maps -->
+        <div class="container-full-width">
+            <h1>LOKASI WHEELZY</h1>
+            <div id="map"></div>
         </div>
     </div>
     <script src="https://maps.gomaps.pro/maps/api/js?key=AlzaSyz-ch82WKO7gWsu-M4e_SBDmDA9UsBjDiS&callback=initMap" async defer></script>

@@ -19,12 +19,11 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__ . '/auth.php';
 
@@ -35,7 +34,9 @@ Route::middleware('auth', 'userMiddleware')->group(function () {
 
     Route::get('katalog', [KatalogController::class, 'index'])->name('katalog');
     Route::get('artikel', [ArtikelController::class, 'index'])->name('artikel');
-    Route::get('faq', [FaqController::class, 'index'])->name('faq');
+
+    //FAQ User
+    Route::get('/faq', [AdminFaqController::class, 'index2'])->name('user.faq');
 
     //Artikel User
     Route::get('artikel', [ArtikelController::class, 'index'])->name('artikel');
@@ -89,6 +90,14 @@ Route::middleware('auth', 'adminMiddleware')->group(function () {
     Route::get('/admin/form/export/pdf', [AdminFormController::class, 'exportPDF'])->name('admin.form.export');
     Route::get('/admin/form/{pesanan}/pdf', [AdminFormController::class, 'exportDetailPDF'])->name('admin.form.pdf');
 
+    //Faq Admin
+    Route::get('/admin/faq', [AdminFaqController::class, 'index'])->name('admin.faq');
+    Route::get('/admin/faqs/create', [AdminFaqController::class, 'create'])->name('admin.faq.create');
+    Route::post('/admin/faqs', [AdminFaqController::class, 'store'])->name('admin.faq.store');
+    Route::get('/admin/faqs/{id}/edit', [AdminFaqController::class, 'edit'])->name('admin.faq.edit');
+    Route::put('/admin/faqs/{id}', [AdminFaqController::class, 'update'])->name('admin.faq.update');
+    Route::delete('/admin/faqs/{id}', [AdminFaqController::class, 'destroy'])->name('admin.faq.destroy');
+    
     //Manage User
     Route::get('/admin/user/{id}/edit', [ManageUserController::class, 'edit'])->name('admin.user.edit');
     Route::put('/admin/user/{id}', [ManageUserController::class, 'update'])->name('admin.user.update');

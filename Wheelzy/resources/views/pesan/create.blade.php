@@ -1,14 +1,9 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Pesan') }}
-        </h2>
-    </x-slot>
 
-    <div class="py-12 bg-gray-100">
+    <div class="py-12 bg-black">
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 px-6 py-4">
+                <div class="bg-black bg-opacity-90 px-6 py-4">
                     <h2 class="text-xl font-bold text-white text-center">Form Penyewaan Kendaraan</h2>
                     <p class="mt-1 text-sm text-indigo-100 text-center">Silahkan isi form dibawah ini dengan benar</p>
                 </div>

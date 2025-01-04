@@ -14,22 +14,33 @@ class AdminFormController extends Controller
     /**
      * Menampilkan halaman utama admin dengan statistik dan daftar pesanan
      *
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        // Menghitung statistik pesanan
+        // Mengambil nilai filter status dari query string
+        $filterStatus = $request->get('status', null);
+
+        // Filter pesanan berdasarkan status jika ada
+        $query = Pesanan::query();
+
+        if ($filterStatus) {
+            $query->where('status', $filterStatus);
+        }
+
+        // Statistik pesanan
         $stats = [
-            'total' => Pesanan::count(), // Total semua pesanan
-            'pending' => Pesanan::where('status', 'pending')->count(), // Total pesanan pending
-            'approved' => Pesanan::where('status', 'approved')->count(), // Total pesanan disetujui
-            'rejected' => Pesanan::where('status', 'rejected')->count(), // Total pesanan ditolak
+            'total' => Pesanan::count(),
+            'pending' => Pesanan::where('status', 'pending')->count(),
+            'approved' => Pesanan::where('status', 'approved')->count(),
+            'rejected' => Pesanan::where('status', 'rejected')->count(),
         ];
 
-        // Mengambil data pesanan dengan pagination
-        $pesanan = Pesanan::latest()->paginate(10);
+        // Ambil data pesanan dengan pagination
+        $pesanan = $query->latest()->paginate(10);
 
-        return view('admin.form', compact('pesanan', 'stats'));
+        return view('admin.form', compact('pesanan', 'stats', 'filterStatus'));
     }
 
     /**
@@ -70,11 +81,11 @@ class AdminFormController extends Controller
     {
         // Validasi input
         $validated = $request->validate([
-            'nama' => 'required|string|max:255', // Nama wajib diisi, string, max 255 karakter
-            'email' => 'required|email', // Email wajib diisi dan format email valid
-            'no_hp' => 'required|string', // No HP wajib diisi
-            'katalog_id' => 'required|exists:katalogs,id', // Katalog wajib diisi dan harus ada di database
-            'status' => 'required|in:pending,approved,rejected' // Status wajib diisi dan harus salah satu dari opsi
+            'nama' => 'required|string|max:255',
+            'email' => 'required|email',
+            'no_hp' => 'required|string',
+            'katalog_id' => 'required|exists:katalogs,id',
+            'status' => 'required|in:pending,approved,rejected'
         ]);
 
         // Update data pesanan

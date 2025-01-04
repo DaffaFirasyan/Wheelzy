@@ -1,6 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-white leading-tight"
+            style="font-size: 30px; margin-bottom: -20px;">
             {{ __('Daftar Artikel') }}
         </h2>
     </x-slot>
@@ -31,7 +32,9 @@
                                 <td class="py-2 px-4">{{ $loop->iteration }}</td>
                                 <td class="py-2 px-4">
                                     <div>{{ $artikel->judul }}</div>
-                                    <div class="text-sm text-gray-500">{{ $artikel->deskripsi }}</div>
+                                    <div class="text-sm">
+                                        {{ Str::limit($artikel->deskripsi, 50, '...') }}
+                                    </div>
                                 </td>
                                 <td class="py-2 px-4">{{ $artikel->user->name }}</td>
                                 <td class="py-2 px-4">
@@ -51,7 +54,6 @@
                                             class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600">Hapus</button>
                                     </form>
                                 </td>
-
                             </tr>
                         @endforeach
                     </tbody>
@@ -59,7 +61,7 @@
 
                 <!-- Kembali ke Halaman Utama -->
                 <div class="mt-4">
-                    <a href="{{ route('dashboard') }}" class="text-sm text-gray-600 hover:underline">
+                    <a href="{{ route('admin.dashboard') }}" class="text-sm text-gray-600 hover:underline">
                         {{ __('Kembali ke Dashboard') }}
                     </a>
                 </div>
