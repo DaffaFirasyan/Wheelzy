@@ -11,7 +11,7 @@ class AdminArtikelController extends Controller
 {
     public function index()
     {
-        $artikels = Artikel::with('user')->get();
+        $artikels = Artikel::with('user')->orderBy('created_at', 'desc')->get();
         return view('admin.artikel.index', compact('artikels'));
     }
     public function show($id)

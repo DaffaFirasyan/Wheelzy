@@ -10,13 +10,13 @@ class AdminFaqController extends Controller
 {
     public function index()
     {
-        $faqs = Faq::all();
+        $faqs = Faq::orderBy('created_at', 'desc')->get(); 
         return view('admin.faq', compact('faqs'));
     }
 
     public function index2()
     {
-        $faqs = Faq::all();
+        $faqs = Faq::orderBy('created_at', 'desc')->get(); 
         return view('faq', compact('faqs'));
     }
 

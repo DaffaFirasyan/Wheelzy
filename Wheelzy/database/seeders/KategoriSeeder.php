@@ -12,6 +12,7 @@ class KategoriSeeder extends Seeder
         $kategoris = [
             ['nama' => 'Motor'],
             ['nama' => 'Mobil'],
+            ['nama' => 'Bus']
         ];
 
         foreach ($kategoris as $kategori) {

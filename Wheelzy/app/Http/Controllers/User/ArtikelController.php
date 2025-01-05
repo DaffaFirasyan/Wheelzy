@@ -10,7 +10,7 @@ class ArtikelController extends Controller
 {
     public function index()
     {
-        $artikels = Artikel::with('user')->get();
+        $artikels = Artikel::with('user')->orderBy('created_at', 'desc')->get(); // Urutkan berdasarkan created_at secara descending
         return view('artikel', compact('artikels'));
     }
 

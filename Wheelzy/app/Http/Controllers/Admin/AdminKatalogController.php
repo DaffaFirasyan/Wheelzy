@@ -12,7 +12,7 @@ class AdminKatalogController extends Controller
 {
     public function index()
     {
-        $katalogs = Katalog::with('kategori')->get(); // Ambil data katalog beserta kategori
+        $katalogs = Katalog::with('kategori')->orderBy('created_at', 'desc')->get(); // Urutkan berdasarkan created_at secara descending
         return view('admin.katalog', compact('katalogs'));
     }
 
@@ -102,8 +102,8 @@ class AdminKatalogController extends Controller
                 $q->where('nama', $request->kategori);
             });
         }
-
-        $katalogs = $query->get(); // Ambil data sesuai filter
+    
+        $katalogs = $query->orderBy('created_at', 'desc')->get(); 
         return view('katalog', compact('katalogs'));
     }
 
